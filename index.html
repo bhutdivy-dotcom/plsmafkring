@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forgiveness Surprise 💖✨</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=Quicksand:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #ffe6f7 0%, #e6f7ff 100%);
+            font-family: 'Quicksand', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: #fff8fb;
+            max-width: 370px;
+            border-radius: 32px;
+            box-shadow: 0 8px 48px rgba(250, 100, 200, 0.16);
+            padding: 38px 24px 24px 24px;
+            text-align: center;
+            position: relative;
+        }
+        h1 {
+            font-family: 'Baloo 2', cursive;
+            color: #fd72c2;
+            font-size: 2em;
+            margin-top: 0.2em;
+        }
+        p {
+            font-size: 1.08em;
+            color: #6c63ff;
+            margin-bottom: 1.3em;
+        }
+        #forgiveBtn {
+            background: linear-gradient(90deg, #fd72c2 20%, #6c63ff 80%);
+            color: #fff;
+            border: none;
+            padding: 15px 34px;
+            font-size: 1.13em;
+            border-radius: 22px;
+            cursor: pointer;
+            font-family: 'Baloo 2', cursive;
+            box-shadow: 0 2px 16px rgba(108,99,255,0.13);
+            transition: background 0.2s;
+        }
+        #forgiveBtn:disabled {
+            background: #f3c5e9;
+            color: #fff;
+            cursor: default;
+        }
+        .cute-img {
+            border-radius: 18px;
+            box-shadow: 0 2px 12px rgba(250, 100, 200, 0.10);
+            margin-bottom: 18px;
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border: 5px solid #ffe6f7;
+        }
+        .hidden { display: none; }
+        #surprise {
+            margin-top: 2em;
+            animation: popIn 0.8s cubic-bezier(.91,-0.13,.17,1.1);
+        }
+        @keyframes popIn {
+            from { transform: scale(0.7); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        #surprise h2 {
+            font-family: 'Baloo 2', cursive;
+            color: #fd72c2;
+            font-size: 1.5em;
+        }
+        #surprise p {
+            color: #ff9a9e;
+            font-size: 1.11em;
+        }
+        #surprise .cute-img {
+            margin-top: 12px;
+            border: 5px solid #e6f7ff;
+        }
+        .stars {
+            font-size: 1.4em;
+            margin-bottom: 12px;
+        }
+        .hearts {
+            font-size: 1.1em;
+            margin-bottom: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="stars">✨🌈⭐️</div>
+        <img class="cute-img" src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?w=400&q=80" alt="Cute Cat" />
+        <h1>Will You Forgive Me? 💕</h1>
+        <p>
+            I may have made a tiny mistake <span class="hearts">💗</span><br>
+            But your smile makes everything better!<br>
+            <strong>Tap the button for a magical surprise! ✨</strong>
+        </p>
+        <button id="forgiveBtn">Forgive Me?</button>
+        <div id="surprise" class="hidden">
+            <h2>🎉 Yay! You’re the Sweetest! 🎉</h2>
+            <p>
+                Thank you for forgiving me!<br>
+                Here’s a shower of joy just for you <span class="hearts">💖💞</span>
+            </p>
+            <img class="cute-img" src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?w=400&q=80" alt="Cute Puppy" />
+        </div>
+    </div>
+    <script>
+        document.getElementById('forgiveBtn').addEventListener('click', function() {
+            // Trigger confetti effect
+            confetti({
+                particleCount: 120,
+                spread: 80,
+                origin: { y: 0.6 },
+                colors: ['#fd72c2', '#ffe6f7', '#6c63ff', '#ff9a9e', '#f3c5e9'],
+            });
+            
+            // Show surprise
+            document.getElementById('surprise').classList.remove('hidden');
+            
+            // Change button text
+            this.textContent = "Yay! Thank You! 💗";
+            this.disabled = true;
+        });
+    </script>
+</body>
+</html>
